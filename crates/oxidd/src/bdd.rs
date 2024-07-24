@@ -135,3 +135,39 @@ mod pointer {
     // Default implementation suffices
     impl oxidd_dump::dot::DotStyle<()> for BDDFunction {}
 }
+
+#[cfg(test)]
+mod tests {
+    use oxidd_core::{function::BooleanFunction, util::AllocResult, ManagerRef};
+
+    use super::*;
+    use oxidd_dump::dot::dump_all;
+
+    #[test]
+    fn construct() -> AllocResult<()> {
+        let manager_ref = new_manager(2048, 1024, 1);
+
+        let (x1, x2, x3) = manager_ref.with_manager_exclusive(|manager| {
+            (
+                BDDFunction::new_var(manager).unwrap(),
+                BDDFunction::new_var(manager).unwrap(),
+                BDDFunction::new_var(manager).unwrap(),
+            )
+        });
+
+        let f = x1.and(&x2.or(&x3)?)?;
+
+        manager_ref.with_manager_shared(|manager| {
+            let file = std::fs::File::create("mtbdd.dot").expect("could not create `tdd.dot`");
+            dump_all(
+                file,
+                manager,
+                [(&x1, "x1"), (&x2, "x2"), (&x3, "x3")],
+                [(&f, "x1 && (x2 || x3)")],
+            )
+            .expect("dot export failed");
+        });
+
+        Ok(())
+    }
+}

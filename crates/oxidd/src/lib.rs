@@ -40,6 +40,8 @@ pub mod bcdd;
 pub mod bdd;
 #[cfg(feature = "mtbdd")]
 pub mod mtbdd;
+#[cfg(feature = "qdd")]
+pub mod qdd;
 #[cfg(feature = "tdd")]
 pub mod tdd;
 #[cfg(feature = "zbdd")]

@@ -25,6 +25,7 @@ oxidd-rules-bdd = { version = "0.7", path = "crates/oxidd-rules-bdd", default-fe
 oxidd-rules-mtbdd = { version = "0.2", path = "crates/oxidd-rules-mtbdd", default-features = false }
 oxidd-rules-tdd = { version = "0.2", path = "crates/oxidd-rules-tdd", default-features = false }
 oxidd-rules-zbdd = { version = "0.7", path = "crates/oxidd-rules-zbdd", default-features = false }
+oxidd-rules-qdd = { version = "0.1", path = "crates/oxidd-rules-qdd", default-features = false }
 oxidd-test-utils = { version = "0.2", path = "crates/oxidd-test-utils", default-features = false }
 
 

@@ -25,6 +25,7 @@ oxidd-rules-bdd = { workspace = true, optional = true }
 oxidd-rules-mtbdd = { workspace = true, optional = true }
 oxidd-rules-tdd = { workspace = true, optional = true }
 oxidd-rules-zbdd = { workspace = true, optional = true }
+oxidd-rules-qdd = { workspace = true, optional = true }
 
 rustc-hash = "2" # fast hash function
 
@@ -41,6 +42,7 @@ default = [
   "bcdd",
   "mtbdd",
   "zbdd",
+  "qdd",
   "multi-threading",
   "apply-cache-direct-mapped",
 ]
@@ -59,6 +61,9 @@ tdd = ["dep:oxidd-rules-tdd"]
 
 ## Enable the ZBDD implementation
 zbdd = ["dep:oxidd-rules-zbdd"]
+
+## Enable the ZBDD implementation
+qdd = ["dep:oxidd-rules-qdd"]
 
 ## Use multi-threaded implementations of the apply algorithm
 multi-threading = [
@@ -92,6 +97,7 @@ statistics = [
   "oxidd-rules-mtbdd?/statistics",
   "oxidd-rules-tdd?/statistics",
   "oxidd-rules-zbdd?/statistics",
+  "oxidd-rules-qdd?/statistics",
   "oxidd-manager-index?/statistics",
 ]
 

@@ -506,6 +506,7 @@ dependencies = [
  "oxidd-reorder",
  "oxidd-rules-bdd",
  "oxidd-rules-mtbdd",
+ "oxidd-rules-qdd",
  "oxidd-rules-tdd",
  "oxidd-rules-zbdd",
  "rustc-hash",
@@ -657,6 +658,18 @@ dependencies = [
  "oxidd-core",
  "oxidd-derive",
  "oxidd-dump",
+]
+
+[[package]]
+name = "oxidd-rules-qdd"
+version = "0.1.0"
+dependencies = [
+ "document-features",
+ "oxidd-cache",
+ "oxidd-core",
+ "oxidd-derive",
+ "oxidd-dump",
+ "rustc-hash",
 ]
 
 [[package]]
